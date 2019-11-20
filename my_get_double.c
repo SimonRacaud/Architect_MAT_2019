@@ -5,7 +5,7 @@
 ** extract the number in a parameter (check error)
 */
 
-#include "102architech.h"
+#include "102architect.h"
 
 static int is_digit(char c, int len_nbr)
 {

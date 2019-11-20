@@ -5,7 +5,10 @@
 ## Project makefile
 ##
 
-SRC	=	main.c	\
+SRC	=	main.c			\
+		extract_arguments.c	\
+		make_matrix.c		\
+		my_get_double.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -16,7 +19,7 @@ CFLAGS	+= -Wall -Wextra -I./include
 all:	$(NAME)
 
 $(NAME):	$(OBJ) LIB
-	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy
+	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -lm
 
 LIB:
 	make -C ./lib/my

@@ -8,9 +8,16 @@
 #ifndef MY_H_
 #define MY_H_
 
-void my_putchar(char c);
+#include <stdarg.h>
+
+#define POW(x, y) my_compute_power_rec(x, y)
+
+int my_putchar(char c);
 int my_isneg(int nb);
-int my_put_nbr(int nb);
+int my_put_nbr(long long int nb);
+int my_put_nbr_ul(unsigned long long int nb);
+int my_putnbr_base(long int nbr, char const *base);
+void my_put_double(double nb, int nb_decimal);
 void my_swap(int *a, int *b);
 int my_putstr(char const *str);
 int my_strlen(char const *str);
@@ -45,5 +52,6 @@ int my_show_word_array(char * const *tab);
 int my_getnbr_base(char const *str, char const *base);
 char *my_putnbr_base_s(int nbr, char const *base);
 void my_putstr_error(char *str);
+int my_printf(char *format, ...);
 
 #endif /* MY_H_ */

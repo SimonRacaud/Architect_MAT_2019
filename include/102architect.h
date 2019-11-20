@@ -8,9 +8,12 @@
 #ifndef ARCHITECT_H
 #define ARCHITECT_H
 
-#define ERR_ARG "ERROR: a parameter is not a number\n"
+#define ERR_ARG_NBR "ERROR: a parameter is not a number\n"
+#define ERR_ARG "ERROR: invalid argument\n"
 
 #include "my.h"
+#include <stdlib.h>
+#include <math.h>
 
 typedef struct matrix_3_3 {
     double matrix[3][3];
