@@ -9,6 +9,7 @@
 #define MY_H_
 
 #include <stdarg.h>
+#include <math.h>
 
 #define POW(x, y) my_compute_power_rec(x, y)
 

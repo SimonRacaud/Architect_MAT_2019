@@ -23,7 +23,7 @@ int nb_decimal)
 static double calc_decimal(double nb, int nb_decimal)
 {
     double integer = floor(nb);
-    double decimal;
+    double decimal = 0;
 
     if (nb < 0)
         integer = ceil(nb);
@@ -40,7 +40,7 @@ void my_put_double(double nb, int nb_decimal)
     double decimal = calc_decimal(nb, nb_decimal);
     int decimal_len = 0;
 
-    if (nb < 0 && nb > -1)
+    if (nb < 0 && nb > -1 && decimal != -1)
         my_putchar('-');
     if (decimal == -1)
         my_put_nbr(round(nb));

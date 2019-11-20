@@ -42,14 +42,14 @@ int is_number(char *str)
 
 int architect(int ac, char **av, matrix_3_3_t *operations, matrix_3_3_t *final)
 {
-    double point[3] = {0, 0, 0};
-    double *point_res;
+    double point[3] = {0, 0, 1};
+    double *point_res = NULL;
     int len = 0;
 
     point[0] = my_get_double(av[1]);
     point[1] = my_get_double(av[2]);
     operations = extract(ac - 3, av + 3, &len);
-    if (!is_number(av[1]) || !is_number(av[2]) || operations == 0) {
+    if (!is_number(av[1]) || !is_number(av[2]) || operations == NULL) {
         my_putstr(ERR_ARG);
         return 84;
     }

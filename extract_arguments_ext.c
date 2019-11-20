@@ -27,7 +27,7 @@ int get_arguments(int idx, int ac, char **av, matrix_3_3_t *mtx)
 
     init_matrix(mtx);
     if (mtx->type == 't' || mtx->type == 'z') {
-        if (!is_number(av[idx]) || !is_number(av[idx + 1]) || idx >= ac - 2)
+        if (idx == ac - 1 || !is_number(av[idx]) || !is_number(av[idx + 1]))
             return 0;
         a = my_get_double(av[idx]);
         b = my_get_double(av[idx + 1]);

@@ -32,11 +32,13 @@ void display_transformation(char **av, int ac)
 void display_result(matrix_3_3_t *matrix_res, double *point_coo,
 double *point_new_coo)
 {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             my_put_double(matrix_res->matrix[i][j], 2);
             my_putstr("\t");
         }
+        my_putchar('\n');
+    }
     my_putstr("(");
     my_put_double(point_coo[0], 2);
     my_putstr(", ");

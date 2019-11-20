@@ -13,12 +13,15 @@ double *find_point_new_coo(matrix_3_3_t *matrix_res, double *point_coo)
     double b = 0;
     double *point_new_coo = malloc(sizeof(double) * 3);
 
-    for (int i = 0; i < 3; i++)
+    point_new_coo[0] = 0;
+    point_new_coo[1] = 0;
+    for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             a = matrix_res->matrix[i][j];
             b = point_coo[j];
             point_new_coo[i] += a * b;
         }
+    }
     return point_new_coo;
 }
 

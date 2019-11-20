@@ -11,18 +11,19 @@ SRC	=	main.c			\
 		make_matrix.c		\
 		my_get_double.c		\
 		display_result.c	\
-		compute_matrix.c
+		compute_matrix.c	\
+		lib/my/my_put_double.c
 
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	102architect
 
-CFLAGS	+= -Wall -Wextra -I./include
+CFLAGS	+= -Wall -Wextra -I./include -g
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ) LIB
-	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -lm
+	gcc -o $(NAME) $(OBJ) -L./lib/my -lmy -lm $(CFLAGS)
 
 LIB:
 	make -C ./lib/my
