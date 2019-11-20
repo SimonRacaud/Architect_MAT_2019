@@ -7,7 +7,7 @@
 
 #include "102architect.h"
 
-double *find_point_new_coo(matrice_3_3_t matrix_res, double *point_coo)
+double *find_point_new_coo(matrix_3_3_t matrix_res, double *point_coo)
 {
     double a = 0;
     double b = 0;
@@ -22,8 +22,8 @@ double *find_point_new_coo(matrice_3_3_t matrix_res, double *point_coo)
     return point_new_coo;
 }
 
-static void compute_two_matrix(matrice_3_3_t matrix1,
-matrice_3_3_t matrix2, int line, matrice_3_3_t *matrix_res)
+static void compute_two_matrix(matrix_3_3_t matrix1,
+matrix_3_3_t matrix2, int line, matrix_3_3_t *matrix_res)
 {
     double a = 0;
     double b = 0;
@@ -38,9 +38,9 @@ matrice_3_3_t matrix2, int line, matrice_3_3_t *matrix_res)
         compute_two_matrix(matrix1, matrix2, line + 1)
 }
 
-matrice_3_3_t *compute_matrix(matrix_3_3_t *matrix, int nb_matrix)
+matrix_3_3_t *compute_matrix(matrix_3_3_t *matrix, int nb_matrix)
 {
-    matrice_3_3_t *matrix_res = malloc(sizeof(*matrix_res));
+    matrix_3_3_t *matrix_res = malloc(sizeof(*matrix_res));
 
     for (int i = 0; i < nb_matrix - 1; i++)
         if (i == 0)
