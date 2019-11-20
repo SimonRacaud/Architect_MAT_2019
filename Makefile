@@ -7,8 +7,11 @@
 
 SRC	=	main.c			\
 		extract_arguments.c	\
+		extract_arguments_ext.c	\
 		make_matrix.c		\
-		my_get_double.c
+		my_get_double.c		\
+		display_result.c	\
+		compute_matrix.c
 
 OBJ	=	$(SRC:.c=.o)
 

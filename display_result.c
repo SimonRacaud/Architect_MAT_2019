@@ -9,7 +9,7 @@
 
 void display_transformation(char **av, int ac)
 {
-    for (int i = 3; i < ac) {
+    for (int i = 3; i < ac; i++) {
         if (my_strcmp(av[i], "-t") == 0) {
             my_printf("Translation along vector ");
             my_printf("(%s, %s)\n", av[i + 1], av[i + 2]);
@@ -29,21 +29,21 @@ void display_transformation(char **av, int ac)
     }
 }
 
-void display_result(matrix_3_3_t matrix_res, double *point_coo,
+void display_result(matrix_3_3_t *matrix_res, double *point_coo,
 double *point_new_coo)
 {
     for (int i = 0; i < 3; i++)
         for (int j = 0; j < 3; j++) {
-            my_put_double(matrix_res->matrix[i][j]);
+            my_put_double(matrix_res->matrix[i][j], 2);
             my_putstr("\t");
         }
     my_putstr("(");
-    my_put_double(point_coo[0]);
+    my_put_double(point_coo[0], 2);
     my_putstr(", ");
-    my_put_double(point_coo[1]);
+    my_put_double(point_coo[1], 2);
     my_putstr(") => (");
-    my_put_double(point_new_coo[0]);
+    my_put_double(point_new_coo[0], 2);
     my_putstr(", ");
-    my_put_double(point_new_coo[1]);
+    my_put_double(point_new_coo[1], 2);
     my_putstr(")\n");
 }
