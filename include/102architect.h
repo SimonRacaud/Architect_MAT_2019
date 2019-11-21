@@ -19,7 +19,6 @@
 typedef struct matrix_3_3 {
     double matrix[3][3];
     char type;
-
 } matrix_3_3_t;
 
 double my_get_double(char *nbr);
