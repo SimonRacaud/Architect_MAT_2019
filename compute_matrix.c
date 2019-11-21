@@ -42,18 +42,27 @@ matrix_3_3_t *matrix2, int line, matrix_3_3_t *matrix_res)
         compute_two_matrix(matrix1, matrix2, line + 1, matrix_res);
 }
 
+static void reset_matrix(matrix_3_3_t *mtx)
+{
+    for (int j = 0; j < 3; j++) {
+        for (int k = 0; k < 3; k++)
+            mtx->matrix[j][k] = 0;
+    }
+}
+
 matrix_3_3_t *compute_matrix(matrix_3_3_t *matrix, int nb_matrix)
 {
     matrix_3_3_t *matrix_res = malloc(sizeof(*matrix_res));
+    matrix_3_3_t matrix_prev_res;
 
-    for (int j = 0; j < 3; j++) {
-        for (int k = 0; k < 3; k++)
-            matrix_res->matrix[j][k] = 0;
-    }
-    for (int i = 0; i < nb_matrix - 1; i++)
-        if (i == 0)
+    for (int i = nb_matrix - 2; i >= 0; i--) {
+        reset_matrix(matrix_res);
+        if (i == nb_matrix - 2) {
             compute_two_matrix(&matrix[i + 1], &matrix[i], 0, matrix_res);
-        else
-            compute_two_matrix(&matrix[i + 1], matrix_res, 0, matrix_res);
+        } else {
+            compute_two_matrix(&matrix_prev_res, &matrix[i], 0, matrix_res);
+        }
+        matrix_prev_res = *matrix_res;
+    }
     return matrix_res;
 }
