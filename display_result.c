@@ -29,16 +29,21 @@ void display_transformation(char **av, int ac)
     }
 }
 
+static void display_matrix_line(matrix_3_3_t *matrix_res, int i)
+{
+    for (int j = 0; j < 3; j++) {
+        if (j != 0)
+            my_putstr("\t");
+        my_put_double(matrix_res->matrix[i][j], 2);
+    }
+    my_putchar('\n');
+}
+
 void display_result(matrix_3_3_t *matrix_res, double *point_coo,
 double *point_new_coo)
 {
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            my_put_double(matrix_res->matrix[i][j], 2);
-            my_putstr("\t");
-        }
-        my_putchar('\n');
-    }
+    for (int i = 0; i < 3; i++)
+        display_matrix_line(matrix_res, i);
     my_putstr("(");
     my_put_double(point_coo[0], 2);
     my_putstr(", ");
