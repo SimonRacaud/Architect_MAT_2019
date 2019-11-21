@@ -70,14 +70,14 @@ int main(int ac, char **av)
     matrix_3_3_t *final = NULL;
 
     if (ac >= 5) {
-        architect(ac, av, operations, final);
+        return architect(ac, av, operations, final);
         free(operations);
         free(final);
     } else if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h') {
         usage();
+        return 0;
     } else {
         my_putstr(ERR_ARG);
         return 84;
     }
-    return 0;
 }
