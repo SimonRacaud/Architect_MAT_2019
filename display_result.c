@@ -24,7 +24,7 @@ void display_transformation(char **av, int ac)
         } else if (my_strcmp(av[i], "-s") == 0) {
             my_printf("Reflection over an axis with an inclination");
             my_printf(" angle of %s degrees\n", av[i + 1]);
-            i += 2;
+            i++;
         }
     }
 }
