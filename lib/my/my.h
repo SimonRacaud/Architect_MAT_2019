@@ -12,7 +12,7 @@
 #include <math.h>
 
 #define POW(x, y) my_compute_power_rec(x, y)
-#define ABS(x) (x < 0) ? -x : x
+//#define ABS(x) (x < 0) ? -x : x
 
 int my_putchar(char c);
 int my_isneg(int nb);

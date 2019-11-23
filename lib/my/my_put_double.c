@@ -41,7 +41,7 @@ void my_put_double(double nb, int nb_decimal)
     int decimal_len = 0;
     double decimal_limit = -1 / pow(10, nb_decimal);
 
-    if (nb < 0 && nb <= decimal_limit && decimal != -1)
+    if ((nb < 0 && nb <= decimal_limit && nb > -1) && decimal != -1)
         my_putchar('-');
     if (decimal == -1)
         my_put_nbr(round(nb));
