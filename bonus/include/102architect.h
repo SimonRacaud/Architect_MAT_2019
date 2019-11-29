@@ -40,6 +40,6 @@ double *point_new_coo);
 matrix_3_3_t *compute_matrix(matrix_3_3_t *matrix, int nb_matrix);
 double *find_point_new_coo(matrix_3_3_t *matrix_res, double *point_coo);
 
-int run(void);
+int run(double *point, double *point_res);
 
 #endif

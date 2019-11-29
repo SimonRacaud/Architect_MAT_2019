@@ -25,6 +25,6 @@ typedef struct window {
 
 window_t *create_window(void);
 void destroy_window(window_t *w);
-int display(window_t *w);
+int display(window_t *w, double *point, double *point_res);
 
 #endif

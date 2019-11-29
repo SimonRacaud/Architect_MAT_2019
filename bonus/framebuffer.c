@@ -18,7 +18,7 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
     buffer->pixels = malloc(sizeof(sfUint8) * (width * height * 4));
     if (buffer->pixels == NULL)
         return (NULL);
-    for (unsigned int i = 0; i <= (width * height * 4); i++)
+    for (unsigned int i = 0; i < (width * height * 4); i++)
         buffer->pixels[i] = 0;
     buffer->texture = sfTexture_create(buffer->width, buffer->height);
     buffer->sprite = sfSprite_create();
@@ -44,12 +44,13 @@ void display_framebuffer(framebuffer_t *fb, sfRenderWindow *w)
     sfTexture_updateFromPixels(txr, fb->pixels, fb->width, fb->height, 0, 0);
     sfSprite_setTexture(fb->sprite, fb->texture, sfFalse);
     sfRenderWindow_drawSprite(w, fb->sprite, NULL);
+    sfRenderWindow_display(w);
 }
 
 int put_pixel(framebuffer_t *framebuffer, unsigned int x, unsigned int y,
 sfColor *color)
 {
-    int indexpix = (y * (framebuffer->width * 4)) + ((x + 1) * 4);
+    int indexpix = (y * (framebuffer->width * 4)) + (x * 4);
 
     if (x < framebuffer->width && y < framebuffer->height) {
         framebuffer->pixels[0 + indexpix] = color->r;

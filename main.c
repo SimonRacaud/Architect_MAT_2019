@@ -7,7 +7,7 @@
 
 #include "102architect.h"
 
-void usage(void)
+static void usage(void)
 {
     my_putstr("USAGE\n\t./102architect x y transfo1 arg11 [arg12] [transfo2 ");
     my_putstr("arg12 [arg22]] ...\n\nDESCRIPTION\n\tx   abscissa of the ");
@@ -40,7 +40,7 @@ int is_number(char *str)
     return 1;
 }
 
-int architect(int ac, char **av, matrix_3_3_t *operations, matrix_3_3_t *final)
+static int architect(int ac, char **av, matrix_3_3_t *operations, matrix_3_3_t **final)
 {
     double point[3] = {0, 0, 1};
     double *point_res = NULL;
@@ -54,12 +54,12 @@ int architect(int ac, char **av, matrix_3_3_t *operations, matrix_3_3_t *final)
         return 84;
     }
     if (len > 1)
-        final = compute_matrix(operations, len);
+        final[0] = compute_matrix(operations, len);
     else
-        final = operations;
-    point_res = find_point_new_coo(final, point);
+        final[0] = operations;
+    point_res = find_point_new_coo(final[0], point);
     display_transformation(av, ac);
-    display_result(final, point, point_res);
+    display_result(final[0], point, point_res);
     free(point_res);
     return 0;
 }
@@ -68,11 +68,12 @@ int main(int ac, char **av)
 {
     matrix_3_3_t *operations = NULL;
     matrix_3_3_t *final = NULL;
+    int val = 0;
 
     if (ac >= 5) {
-        return architect(ac, av, operations, final);
-        free(operations);
+        val = architect(ac, av, operations, &final);
         free(final);
+        return val;
     } else if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h') {
         usage();
         return 0;

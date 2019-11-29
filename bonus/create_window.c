@@ -7,8 +7,6 @@
 
 #include "header.h"
 
-void draw_bg()
-
 window_t *create_window(void)
 {
     window_t *w = malloc(sizeof(window_t));

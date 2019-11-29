@@ -72,8 +72,10 @@ double my_get_double(char *nbr)
         my_putstr_error(ERR_ARG);
         exit(84);
     }
-    if (dot == NULL || len[2] == 0)
+    if (dot == NULL || len[2] == 0) {
+        free(len);
         return ((double)my_getnbr(nbr));
+    }
     if (len[1] != 0)
         alpha = my_getnbr(nbr);
     beta = (double)my_getnbr(dot) / my_compute_power_rec(10, len[2]);

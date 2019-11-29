@@ -13,8 +13,8 @@ SRC	=	main.c			\
 		display_result.c	\
 		compute_matrix.c	\
 		lib/my/my_put_double.c	\
-		framebuffer.c			\
-		framebuffer_ext.c			\
+		framebuffer.c		\
+		framebuffer_ext.c	\
 		framebuffer_shapes01.c	\
 		framebuffer_shapes02.c	\
 		run.c	\
