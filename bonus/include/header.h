@@ -16,15 +16,12 @@
 
 typedef struct window {
     sfRenderWindow *window;
-    sfColor color;
-    sfVector2u p1;
-    sfVector2u p2;
-    sfVector2u p3;
     framebuffer_t *fb;
 } window_t;
 
 window_t *create_window(void);
 void destroy_window(window_t *w);
-int display(window_t *w, double *point, double *point_res);
+
+void draw_bg(window_t *w);
 
 #endif

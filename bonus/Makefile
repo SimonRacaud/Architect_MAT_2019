@@ -17,7 +17,7 @@ SRC	=	main.c			\
 		framebuffer_ext.c	\
 		framebuffer_shapes01.c	\
 		framebuffer_shapes02.c	\
-		run.c	\
+		run.c			\
 		create_window.c
 
 OBJ	=	$(SRC:.c=.o)
